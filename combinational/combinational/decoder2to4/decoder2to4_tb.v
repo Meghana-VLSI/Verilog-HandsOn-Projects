@@ -1,0 +1,43 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03.12.2025 18:44:07
+// Design Name: 
+// Module Name: decoder2to4_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+module decoder2to4_tb;
+
+reg [1:0] in;
+reg en;
+wire [3:0] out;
+
+decoder2to4 uut (.in(in), .en(en), .out(out));
+
+initial begin
+
+    en = 0; in = 2'b00; #10;
+    en = 1;
+
+    in = 2'b00; #10;
+    in = 2'b01; #10;
+    in = 2'b10; #10;
+    in = 2'b11; #10;
+
+    en = 0; in = 2'b10; #10;
+end
+
+endmodule
